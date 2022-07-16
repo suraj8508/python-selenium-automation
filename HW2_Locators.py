@@ -29,6 +29,6 @@ Conditions of Use:
 driver.find_element(By.Xpath, "//div[@id='legalTextRow']//a[contains(@href, 'condition_of_use')]")
 
 Privacy Notice:
-driver.finf_element(By.Xpath, "//a[contains(@href, 'notification_privacy_notice')]")
+driver.find_element(By.Xpath, "//a[contains(@href, 'notification_privacy_notice')]")
 
 """
