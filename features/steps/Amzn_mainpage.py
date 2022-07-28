@@ -1,5 +1,8 @@
 from selenium.webdriver.common.by import By
 from behave import given, when, then
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
 
 CART_BTN = (By.ID, 'nav-cart')
 ORDER_BTN =(By.XPATH, "//a[@id='nav-orders']//span[@class='nav-line-2']")
@@ -19,7 +22,6 @@ def search_products(context, search_word):
     context.driver.find_element(*SEARCH_ICON).click()
 
 
-
 @when('Click on Order button')
 def select_orders(context):
     context.driver.find_element(*ORDER_BTN).click()
@@ -28,6 +30,7 @@ def select_orders(context):
 @when('Selecting cart from homepage')
 def select_cart(context):
     context.driver.find_element(*CART_BTN).click()
+
 
 @then('Verify Hamburger Menu displayed')
 def verify_ham_menu(context):

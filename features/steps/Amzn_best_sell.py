@@ -1,9 +1,11 @@
 from selenium.webdriver.common.by import By
 from behave import given, when, then
 from time import sleep
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 BEST_SELL_BTN = (By.CSS_SELECTOR,'a[href="/gp/bestsellers/?ref_=nav_cs_bestsellers"].nav-a  ')
-BEST_MENU_LINKS = (By.CSS_SELECTOR, 'div[class*=_p13n-zg-nav-tab-all_style_zg-tabs-li]')
+BEST_MENU_LINKS = (By.ID, 'zg_header a')
 T_DEAL_MENU_LINKS = (By.CSS_SELECTOR, 'div#nav-subnav a')
 CUST_SERVICE_LINKS = (By.CSS_SELECTOR, 'div.issue-card-wrapper')
 

@@ -1,6 +1,9 @@
 from selenium.webdriver.common.by import By
 from behave import given, when, then
 from time import sleep
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
 
 T_DEAL_BTN = (By.CSS_SELECTOR, 'a[href="/deals?ref_=nav_cs_gb"].nav-a  ')
 # T_DEAL_MENU_LINKS = (By.CSS_SELECTOR, 'div#nav-subnav a')
