@@ -5,8 +5,13 @@ Feature: Test Scenario for the Amazon SignIn
   Scenario: Amazon Sign In Page Verification
     Given Open Amazon page
     When Click on Order button
-    Then User sees Sign In page
+    Then Varify Sign In page opened
     Then User see email field
+
+ Scenario: Open Sign In Page from Sign In popup
+   Given Open Amazon Page
+   When Click on the Sign In pop up
+   Then Varify Sign In page opened
 
 
 

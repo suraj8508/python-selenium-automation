@@ -23,9 +23,11 @@ from unknown error: unexpected command response
     Given Open Amazon Page
     When Search for <product> on amazon
     And Click on the first product
+    And Store product name
     And Click on add to Cart button
     And Open the Cart page
     Then  Verify Cart has 1 item(s)
+    And Verify cart has correct product
     Examples:
     | product     |
     | laptop        |

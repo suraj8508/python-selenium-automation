@@ -5,11 +5,17 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 FIRST_PROD = (By.XPATH, "//div[@data-component-type='s-search-result']//a[.//span[@class='a-price']]")
-
+PROD_NAME = (By.ID, 'productTitle')
 
 @when('Click on the first product')
 def click_first_product(context):
     context.driver.find_element(*FIRST_PROD).click()
+
+
+@when('Store product name')
+def store_prod_name(context):
+    context.prod_name = context.driver.find_element(*PROD_NAME).text
+    print(f"Current Product Name is {context.prod_name}")
 
 
 # @then ('User sees the {search_result}')

@@ -5,7 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 EMAIL_BTN=(By.CSS_SELECTOR, 'div.a-row.sc-your-amazon-cart-is-empty')
 CART = (By.ID, 'nav-cart-count')
-
+CART_PROD_NAME = (By.CSS_SELECTOR, 'sc-active-cart li')
 
 @when('Open the Cart page')
 def open_cart_page(context):
@@ -19,6 +19,10 @@ def verify_cart(context, actl_count):
     assert actl_count == exp_count, f"Mismatch between {actl_count} and {exp_count}"
 
 
+@then('Verify cart has correct product')
+def correct_product(context):
+    actual_prod_name = context.driver.find_element(*CART_PROD_NAME).text
+    assert context.prod_name[:30] in actual_prod_name, f"Expected {context.prod_name} but actual is {actual_prod_name}"
 
 
 

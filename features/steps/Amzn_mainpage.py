@@ -10,6 +10,9 @@ INPUT_FIELD = (By.CSS_SELECTOR, '.nav-input.nav-progressive-attribute[aria-label
 SEARCH_ICON = (By.ID, 'nav-search-submit-button')
 HAM_MENU = (By.ID, 'nav-hamburger-menu')
 FOOTER_LINKS = (By.CSS_SELECTOR,'table.navFooterMoreOnAmazon td a')
+SIGNIN_POP_BTN = (By.CSS_SELECTOR, '#nav-signin-tooltip a.nav-action-button')
+
+
 
 @given('Open Amazon Page')
 def open_amazon(context):
@@ -32,9 +35,17 @@ def select_cart(context):
     context.driver.find_element(*CART_BTN).click()
 
 
+@when('Click on the Sign In pop up')
+def clik_signin_popup(context):
+    context.driver.wait.until(EC.element_to_be_clickable(SIGNIN_POP_BTN),
+                              message=" signin is not clickable").click()
+# failing not clicking on sign in pop up
+
+
 @then('Verify Hamburger Menu displayed')
 def verify_ham_menu(context):
     context.driver.find_element(*HAM_MENU)
+
 
 @then('Verify {link_counts} footer links')
 def verify_links(context, link_counts):

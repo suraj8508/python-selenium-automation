@@ -4,7 +4,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
-@then('User sees Sign In page')
+@then('Varify Sign In page opened')
 def open_signin(context):
     expected_result = "Sign-In"
     actual_result = context.driver.find_element(By.XPATH, "//h1[@class='a-spacing-small']").text
