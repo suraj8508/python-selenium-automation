@@ -14,4 +14,11 @@ Feature: Test Scenario for the Amazon SignIn
    Then Varify Sign In page opened
 
 
+ Scenario: Users can see the Amazon Sign in Button
+   Given Open Amazon Page
+   Then Verify Sign In Clickable
+   When Wait for 8 Sec
+#   Then Verify Sign In Clickable
+   Then Sign In disappears
+
 

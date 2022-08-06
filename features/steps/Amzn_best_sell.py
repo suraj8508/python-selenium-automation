@@ -8,6 +8,7 @@ BEST_SELL_BTN = (By.CSS_SELECTOR,'a[href="/gp/bestsellers/?ref_=nav_cs_bestselle
 BEST_MENU_LINKS = (By.ID, 'zg_header a')
 T_DEAL_MENU_LINKS = (By.CSS_SELECTOR, 'div#nav-subnav a')
 CUST_SERVICE_LINKS = (By.CSS_SELECTOR, 'div.issue-card-wrapper')
+BEST_PAGE_HEADING = (By.ID, 'zg_banner_text')
 
 
 # @given ('Amazon Best Sellers page')
@@ -44,3 +45,29 @@ def verify_cust_serv_links(context, link_counts):
     menu_items = context.driver.find_elements(*CUST_SERVICE_LINKS)
 
     assert len(menu_items) == link_counts, f"Links expected {link_counts} not matching with {len(menu_items)}"
+
+
+@then('Click on each top link and verifies correct link opened')
+def click_top_links(context):
+    links = context.driver.find_elements(*BEST_MENU_LINKS)
+    expected_results = [
+        'Amazon Best Sellers', 'Amazon Hot New Releases', 'Amazon Movers & Shakers', 'Amazon Most Wished For',
+        'Amazon Gift Ideas'
+    ]
+    actual_result = []
+    for link in links:
+        link.click()
+        actual_result.append(context.driver.find_element(*BEST_PAGE_HEADING).text)
+        assert expected_results == actual_result, f"Expected {expected_results} not matching {actual_result}"
+
+
+@then('Go back to the home page')
+def back_to_homepage(context):
+    context.driver.switch_to.window(context.original_window)
+
+
+
+
+
+
+

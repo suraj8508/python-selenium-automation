@@ -43,3 +43,14 @@ from unknown error: unexpected command response
   Scenario: Verify all Amazon Footer Links
     Given Open Amazon Page
     Then Verify 38 footer links
+
+
+  Scenario Outline: Verify user sees all the products and images
+    Given Open Amazon Page
+    When Search for <product> on amazon
+    Then Verify every product has a name and image
+    Examples:
+    |  product   |
+    |  bag          |
+    |  coffee     |
+    |  book        |
