@@ -10,8 +10,8 @@ Feature: Test Scenario for the Amazon Cart
       | product   | search_result  |
       | mug         |  "mug"              |
       | coffee      |  "coffee"          |
-      | laptop      |   "laptop"         |
-      | pencil       |  "pencil"          |
+#      | laptop      |   "laptop"         |
+#      | pencil       |  "pencil"          |
 
 
 
@@ -54,3 +54,17 @@ from unknown error: unexpected command response
     |  bag          |
     |  coffee     |
     |  book        |
+
+
+  Scenario: 'Your Shopping Cart is empty' shown if no product added
+    Given Open Amazon page
+    When Selecting cart from homepage
+    Then Verify "Your Shopping Cart is empty." text present
+
+
+  Scenario: User Adds a Product to Cart
+    Given Open Amazon Page
+    When Search for mug on amazon
+    Then User select the first product
+    Then Add the product to the cart
+#    Then Verify cart has correct product

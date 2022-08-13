@@ -25,6 +25,13 @@ def correct_product(context):
     assert context.prod_name[:30] in actual_prod_name, f"Expected {context.prod_name} but actual is {actual_prod_name}"
 
 
+@then('Verify "Your Shopping Cart is empty." text present')
+def verify_empty_cart(context):
+    expected_text = "Your Amazon Cart is empty"
+    context.app.cart_page.verify_cart_empty(expected_text)
+
+
+
 
 # @then('User see Empty Cart page')
 # def verify_empty_cart(context):

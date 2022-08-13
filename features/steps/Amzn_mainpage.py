@@ -22,18 +22,21 @@ def open_amazon(context):
 
 @when('Search for {search_word} on amazon')
 def search_products(context, search_word):
-    context.driver.find_element(*INPUT_FIELD).send_keys(search_word)
-    context.driver.find_element(*SEARCH_ICON).click()
+    # context.driver.find_element(*INPUT_FIELD).send_keys(search_word)
+    # context.driver.find_element(*SEARCH_ICON).click()
+    context.app.header.search_product(search_word)
 
 
 @when('Click on Order button')
 def select_orders(context):
-    context.driver.find_element(*ORDER_BTN).click()
+    # context.driver.find_element(*ORDER_BTN).click()
+    context.app.header.click_order()
 
 
 @when('Selecting cart from homepage')
 def select_cart(context):
-    context.driver.find_element(*CART_BTN).click()
+    # context.driver.find_element(*CART_BTN).click()
+    context.app.header.click_cart()
 
 
 @when('Click on the Sign In pop up')

@@ -41,3 +41,6 @@ def verify_dress_colors(context):
     assert expected_colors_sweat == actual_colors, f"Expected colors {expected_colors_sweat}  but got {actual_colors}"
 
 
+@then('Add the product to the cart')
+def cart_addition(context):
+    context.app.product_page.add_to_cart()

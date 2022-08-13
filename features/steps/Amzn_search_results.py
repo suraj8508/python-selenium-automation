@@ -33,8 +33,9 @@ def store_prod_name(context):
 
 @then('User sees the {search_result}')
 def verify_search_results(context, search_result):
-    actual_result = context.driver.find_element(By.CSS_SELECTOR, 'span.a-color-state.a-text-bold').text
-    assert search_result == actual_result, f'Expected {search_result} but got {actual_result}'
+    # actual_result = context.driver.find_element(By.CSS_SELECTOR, 'span.a-color-state.a-text-bold').text
+    # assert search_result == actual_result, f'Expected {search_result} but got {actual_result}'
+    context.app.search_results_page.verify_search_results(search_result)
 
 
 @then('Verify every product has a name and image')
@@ -63,3 +64,8 @@ def verify_prd_nm_img(context):
         title = product.find_element(*PROD_TITLE).text
         assert title, 'Error, title is not matching or blank'
         product.find_element(*PROD_IMG)
+
+
+@then('User select the first product')
+def select_first_prod(context):
+    context.app.search_results_page.select_first_product()
