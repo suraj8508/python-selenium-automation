@@ -68,3 +68,23 @@ from unknown error: unexpected command response
     Then User select the first product
     Then Add the product to the cart
 #    Then Verify cart has correct product
+
+
+  Scenario: User can see Language Option
+    Given Open Amazon Page
+    When Hover over language option
+    Then Verify Spanish option displayed
+
+
+  Scenario: User can select and search in a department
+    Given Open Amazon Page
+    When Select the department by alias stripbooks
+    And Search for Cinderella on amazon
+    Then Verify books department is selected
+
+
+  Scenario: User can select Appliances and search Microwave
+    Given Open Amazon Page
+    When Select the Department Appliances
+    And Search for Microwave on amazon
+    Then Verify Appliances Dept is Selected

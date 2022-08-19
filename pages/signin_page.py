@@ -8,4 +8,5 @@ class SigninPage(Page):
     def verify_signin_page(self, expected_text, *locator):
         # expected_text = "Sign-In"
         self.verify_element_text(expected_text, *self.SIGNIN_TEXT)
+        # self.verify_url_contains_query('https://www.amazon.com/ap/signin')
 

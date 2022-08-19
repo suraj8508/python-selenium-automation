@@ -11,12 +11,22 @@ CURRENT_COLOR = (By.CSS_SELECTOR, '#variation_color_name .selection')
 
 @given('Open Amazon Product {product_id} page')
 def open_prod_page(context, product_id):
-    context.driver.get(f'https://www.amazon.com/dp/{product_id}/')
-
+    # context.driver.get(f'https://www.amazon.com/dp/{product_id}/')
+    context.app.product_page.open_prod_page()
 
 @when('Click on add to Cart button')
 def add_to_cart(context):
     context.driver.find_element(*ADD_CART_BTN).click()
+
+
+@when('Hover over New Arrivals Option')
+def hover_new_arrivals(context):
+    context.app.product_page.hover_new_arrivals()
+
+
+@then('Add the product to the cart')
+def cart_addition(context):
+    context.app.product_page.add_to_cart()
 
 
 @then('Verify User can Click over the Colors')
@@ -41,6 +51,6 @@ def verify_dress_colors(context):
     assert expected_colors_sweat == actual_colors, f"Expected colors {expected_colors_sweat}  but got {actual_colors}"
 
 
-@then('Add the product to the cart')
-def cart_addition(context):
-    context.app.product_page.add_to_cart()
+@then('Verify Women option displayed')
+def verify_category_women(context):
+    context.app.product_page.verify_category_women()

@@ -69,3 +69,13 @@ def verify_prd_nm_img(context):
 @then('User select the first product')
 def select_first_prod(context):
     context.app.search_results_page.select_first_product()
+
+
+@then('Verify {category} department is selected')
+def verify_dept_selected(context, category):
+    context.app.search_results_page.verify_dept_selected(category)
+
+
+@then('Verify Appliances Dept is Selected')
+def verify_appliances_dept(context):
+    context.app.search_results_page.verify_appliances_dept()

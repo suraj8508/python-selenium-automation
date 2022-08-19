@@ -14,10 +14,19 @@ FOOTER_LINKS = (By.CSS_SELECTOR,'table.navFooterMoreOnAmazon td a')
 SIGNIN_POP_BTN = (By.CSS_SELECTOR, '#nav-signin-tooltip a.nav-action-button')
 
 
-
 @given('Open Amazon Page')
 def open_amazon(context):
     context.driver.get('https://www.amazon.com/')
+
+
+@when('Select the department by alias {alias}')
+def select_dept(context, alias):
+    context.app.header.select_dept(alias)
+
+
+@when('Select the Department Appliances')
+def select_appliances(context):
+    context.app.header.select_appliances()
 
 
 @when('Search for {search_word} on amazon')
@@ -31,6 +40,11 @@ def search_products(context, search_word):
 def select_orders(context):
     # context.driver.find_element(*ORDER_BTN).click()
     context.app.header.click_order()
+
+
+@when('Hover over language option')
+def hover_language(context):
+    context.app.header.hover_language()
 
 
 @when('Selecting cart from homepage')
@@ -61,6 +75,12 @@ def verify_ham_menu(context):
     ham_menu = context.driver.find_element(*HAM_MENU)
     print(ham_menu)
     ham_menu.click()
+
+
+@then('Verify Spanish option displayed')
+def verify_span_lang(context):
+    context.app.header.verify_span_lang()
+
 
 @then('Verify Sign In Clickable')
 def verify_signin_clickable(context):

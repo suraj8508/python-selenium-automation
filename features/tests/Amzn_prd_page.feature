@@ -19,3 +19,9 @@ Feature: Testing the Iteration over the products list
  Scenario: User Can select different Colors
     Given Open Amazon Product B081YS2F7N page
     Then Verify User can Click over the Colors
+
+
+Scenario: User can see New Arrivals Option
+    Given Open Amazon Product B074TBCSC8 page
+    When Hover over New Arrivals Option
+    Then Verify Women option displayed
